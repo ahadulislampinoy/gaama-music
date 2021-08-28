@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GAaMa</title>
+    <!-- google font and fontawesome cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- css,favicon and js -->
+    <link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="content">
+        <div class="logo">
+          <a href="#"><img src="Images/logo.png" alt="logo" /></a>
+        </div>
+        <ul class="menu-list">
+          <div class="icon cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+          <li><a href="#">Premium</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Download</a></li>
+          <li class="divider"><a href="#">|</a></li>
+          <li><a href="#">Sign up</a></li>
+          <li><a href="#">Log in</a></li>
+        </ul>
+        <div class="icon menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+    <!-- main body -->
+    <main class="main-content">
+      <aside class="left-part">
+        <h1>
+          Music <br />
+          Soul
+        </h1>
+      </aside>
+      <aside class="right-part">
+        <p>Click here to listen music</p>
+        <img
+          src="Images/play.png"
+          onclick="togglePlay()"
+          alt="play"
+          id="icon"
+        />
+      </aside>
+      <audio id="mySong">
+        <source src="audio/Night changes by 1D.mp3" type="audio/mp3" />
+      </audio>
+    </main>
+    <script>
+      // navigation js
+      const body = document.querySelector("body");
+      const navbar = document.querySelector(".navbar");
+      const menuBtn = document.querySelector(".menu-btn");
+      const cancelBtn = document.querySelector(".cancel-btn");
+      menuBtn.onclick = () => {
+        navbar.classList.add("show");
+        menuBtn.classList.add("hide");
+        body.classList.add("disabled");
+      };
+      cancelBtn.onclick = () => {
+        body.classList.remove("disabled");
+        navbar.classList.remove("show");
+        menuBtn.classList.remove("hide");
+      };
+      window.onscroll = () => {
+        this.scrollY > 20
+          ? navbar.classList.add("sticky")
+          : navbar.classList.remove("sticky");
+      };
+    </script>
+  </body>
+</html>
